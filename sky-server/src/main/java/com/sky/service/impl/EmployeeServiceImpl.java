@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import java.time.LocalDateTime;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -84,6 +86,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setCreateUser(10L);
         employee.setUpdateUser(10L);
 
+        // 插入数据
         employeeMapper.insert(employee);
     }
 
