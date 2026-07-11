@@ -84,6 +84,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setCreateUser(10L);
         employee.setUpdateUser(10L);
 
+        // 插入数据
         employeeMapper.insert(employee);
     }
 
