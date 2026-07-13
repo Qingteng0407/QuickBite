@@ -94,17 +94,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeMapper.insert(employee);
     }
 
-    @Override
-    public PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO) {
-        return null;
-    }
-
     /**
      * 分页查询
      * @param employeePageQueryDTO
      * @return
      */
-    public PageResult page(EmployeePageQueryDTO employeePageQueryDTO) {
+    public PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO) {
         // select * from employee limit 0,10;从0开始查10条数据
         //开始分页查询
         PageHelper.startPage(employeePageQueryDTO.getPage(), employeePageQueryDTO.getPageSize());
@@ -115,5 +110,4 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return new PageResult(total, records);
     }
-
 }
