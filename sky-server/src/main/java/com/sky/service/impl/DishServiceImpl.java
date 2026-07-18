@@ -31,7 +31,7 @@ public class DishServiceImpl implements DishService {
     public void saveWithFlavor(DishDTO dishDTO) {
 
         Dish dish = new Dish();
-        BeanUtils.copyProperties(dishDTO,dish);// 拷贝属性
+        BeanUtils.copyProperties(dishDTO,dish);// 将dishDTO中的数据复制到dish中
 
         // 向菜品表插入一条数据
         dishMapper.insert(dish);
