@@ -23,5 +23,5 @@ public interface DishMapper {
      * @param dish
      */
     @AutoFill(value = OperationType.INSERT)
-    void insert(2026-07-17 15:49:50.786  WARN 25560 --- [nio-8080-exec-4] o.s.web.servlet.PageNotFound             : No Dish dish);
+    void insert(Dish dish);
 }
