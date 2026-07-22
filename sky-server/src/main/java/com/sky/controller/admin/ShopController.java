@@ -27,7 +27,7 @@ public class ShopController {
         log.info("设置店铺的营业状态为：{}",status == 1?"营业中":"打烊中");
         redisTemplate.opsForValue().set("SHOP_STATUS",status);
         // 返回店铺的营业状态
-        return Result.success(1);
+        return Result.success();
     }
     /**
      * 获取店铺的营业状态
