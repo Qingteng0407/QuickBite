@@ -11,4 +11,9 @@
     access-key-id: LTAI5tAeS5QGNfwXbcYDqmhX
     access-key-secret: AaWNOJpXeHNUf43wNOTrOPLGKFfFGh
     bucket-name: qingteng-sky-takeout
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 10
 
