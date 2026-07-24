@@ -16,4 +16,6 @@
     port: 6379
     password:
     database: 10
-
+  wechat:
+    appid: wxf7c411fd84711723
+    secret: 604663ee006d2145bc2a7127c9d2fa6c
