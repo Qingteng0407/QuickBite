@@ -1,94 +1,120 @@
-# Quick Bit
+# QuickBite
 
-### Introduction
+QuickBite is a work-in-progress food ordering backend built with Spring Boot. It provides separate APIs for restaurant administrators and customers, with MySQL persistence, Redis caching, JWT authentication, and object-storage-based image uploads.
 
-A Spring Boot-based takeaway management system developed to learn enterprise-level Java Web development.
-> This project is developed based on the Sky Takeout learning project and extended for learning and practice
+This repository is a learning project based on the **Sky Take Out (苍穹外卖)** course. I am extending and documenting the project while learning practical Java backend development.
 
-### Tech Stack
+## Current Features
 
-- Java
-- Spring Boot
+### Admin
+
+- Employee login and account management
+- Category management
+- Dish creation, pagination, editing, deletion, and status management
+- Dish flavour management
+- Automatic population of audit fields with Spring AOP
+- Image upload to Alibaba Cloud OSS
+- Shop business status management with Redis
+- Automatic cache invalidation after dish changes
+- Automatic set meal suspension when a related dish is suspended
+
+### Customer
+
+- WeChat user login
+- Shop business status query
+- Category browsing
+- Dish and flavour browsing
+- Set meal browsing
+- Redis-backed dish list caching
+
+### Planned
+
+- Shopping cart
+- Address book
+- Order placement and payment flow
+- Order status management
+- WebSocket notifications
+- Dashboard statistics and reports
+
+## Tech Stack
+
+- Java 18
+- Spring Boot 2.7.3
 - Spring MVC
+- Spring Data Redis
 - MyBatis
 - MySQL
-- Redis (Learning)
-- Spring Cache (Learning)
+- Druid
+- PageHelper
+- JWT
+- Spring AOP
+- Knife4j / Swagger
+- Alibaba Cloud OSS
 - Maven
-- Git
+- Docker (local Redis)
 
-### Completed
+## Project Structure
 
-- ✅ Employee Management
-- ✅ Category Management
-- ✅ Dish Management
-- ✅ Auto Fill Common Fields
-- ✅ Shop Status Management
-- ✅ Redis Basics
-- ✅ Spring Data Redis
-- ✅ HttpClient
-- ✅ WeChat Login
-- ✅ Product Browsing
-- ✅ Spring Cache
+```text
+QuickBite
+├── sky-common   # Shared constants, utilities, context and result objects
+├── sky-pojo     # Entities, DTOs and view objects
+└── sky-server   # Controllers, services, mappers and application configuration
+```
 
-### In Progress
+The main request flow is:
 
-- 🚧 Shopping Cart
-- 🚧 Address Book
-- 🚧 User Order
+```text
+Controller -> Service -> Mapper -> MySQL
+                         |
+                         -> Redis cache
+```
 
-### To Do
+## Getting Started
 
-- Payment
-- Spring Task
-- WebSocket
-- Statistics
-- Dashboard
-- Excel Report
+### Prerequisites
 
---------------
-### 项目简介(中文版)
+- JDK 18
+- Maven 3.8+
+- MySQL 8+
+- Redis 6+
 
-基于 Spring Boot 的前后端分离外卖管理系统，用于学习企业级 Java Web 开发流程。
-> 本项目基于苍穹外卖学习项目进行开发，并在学习过程中持续完善功能。
+### Configuration
 
-### 技术栈
+The application expects the following local services:
 
-- Java
-- Spring Boot
-- Spring MVC
-- MyBatis
-- MySQL
-- Redis（Learning）
-- Spring Cache（Learning）
-- Maven
-- Git
+- MySQL: `localhost:3306`
+- Database: `sky_take_out`
+- Redis: `localhost:6379`
+- Redis database: `10`
 
-### 已完成
+Configure your own database password, OSS credentials, and WeChat credentials before starting the application.
 
-- ✅ 员工管理（新增、分页、启用/禁用、编辑）
-- ✅ 分类管理
-- ✅ 菜品管理（新增、修改、删除、分页）
-- ✅ 公共字段自动填充
-- ✅ 店铺营业状态管理
-- ✅ Redis 基础
-- ✅ Spring Data Redis
-- ✅ HttpClient
-- ✅ 微信登录
-- ✅ 商品浏览
-- ✅ Spring Cache（菜品、套餐缓存）
+> Never commit real passwords, access keys, or application secrets. Use environment variables or a local configuration file excluded by Git.
 
-### 开发中
+### Run
 
-- 🚧 购物车
-- 🚧 地址簿
-- 🚧 用户下单
+```bash
+mvn -pl sky-server -am spring-boot:run
+```
 
-### 计划完成
+The backend starts on:
 
-- 订单支付
-- Spring Task
-- WebSocket
-- 数据统计
-- 工作台
-- Excel 报表
+```text
+http://localhost:8080
+```
+
+## Build
+
+```bash
+mvn -pl sky-server -am -DskipTests compile
+```
+
+## Project Status
+
+The project is under active development. The current focus is completing the customer ordering workflow and improving test coverage, documentation, and deployment configuration.
+
+## Acknowledgements
+
+- [Sky Take Out (苍穹外卖)](https://www.bilibili.com/video/BV1TP411v7v6) by 黑马程序员
+
