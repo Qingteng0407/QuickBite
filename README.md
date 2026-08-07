@@ -2,7 +2,7 @@
 
 QuickBite is a work-in-progress food ordering backend built with Spring Boot. It provides separate APIs for restaurant administrators and customers, with MySQL persistence, Redis caching, JWT authentication, and object-storage-based image uploads.
 
-This repository is a learning project based on the **Sky Take Out (苍穹外卖)** course. I am extending and documenting the project while learning practical Java backend development.
+This repository contains **Cancat Take Out (能猫外卖)**, a learning project extended from the Sky Take Out course while studying practical Java backend development.
 
 ## Current Features
 
@@ -117,4 +117,3 @@ The project is under active development. The current focus is completing the cus
 ## Acknowledgements
 
 - [Sky Take Out (苍穹外卖)](https://www.bilibili.com/video/BV1TP411v7v6) by 黑马程序员
-
